@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Se registre</h1>
+<form class='form-with-validation' action="{% url 'register' %}" method="post">
+  {% csrf_token %}
+  {{ form }}
+  <button type='submit' class='form-submit'>Cadastre-se</button>
+</form>
+{% endblock  %}
