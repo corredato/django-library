@@ -6,5 +6,8 @@
   {% csrf_token %}
   {{ form }}
   <button type='submit' class='form-submit'>Cadastre-se</button>
+  <div class="text-sm font-medium text-gray-500">
+    Já possui cadastro? <a href="{% url 'login' %}">Entre</a>
+  </div>
 </form>
 {% endblock  %}
