@@ -1,13 +1,33 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Se registre</h1>
-<form class='form-with-validation' action="{% url 'register' %}" method="post">
-  {% csrf_token %}
-  {{ form }}
-  <button type='submit' class='form-submit'>Cadastre-se</button>
-  <div class="text-sm font-medium text-gray-500">
-    Já possui cadastro? <a href="{% url 'login' %}">Entre</a>
+<div class="container d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+  <div class="card shadow p-4" style="width: 100%; max-width: 400px;">
+    <div class="text-center mb-4">
+      <img src="https://cdn-icons-png.flaticon.com/512/207/207114.png" alt="Logo Biblioteca" width="64" class="mb-2">
+      <h2 class="fw-bold">Crie sua conta</h2>
+      <p class="text-muted mb-0">Preencha os dados para se registrar</p>
+    </div>
+    <form action="{% url 'register' %}" method="post" autocomplete="off">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="id_email" class="form-label">E-mail</label>
+        <input type="email" name="email" class="form-control rounded-pill px-3 py-2" id="id_email" required autofocus>
+      </div>
+      <div class="mb-3">
+        <label for="id_password1" class="form-label">Senha</label>
+        <input type="password" name="password1" class="form-control rounded-pill px-3 py-2" id="id_password1" required>
+      </div>
+      <div class="mb-3">
+        <label for="id_password2" class="form-label">Confirme a Senha</label>
+        <input type="password" name="password2" class="form-control rounded-pill px-3 py-2" id="id_password2" required>
+      </div>
+      <button type="submit" class="btn btn-primary w-100 mt-2 rounded-pill">Cadastre-se</button>
+    </form>
+    <div class="text-center mt-3 text-secondary">
+      Já possui cadastro?
+      <a href="{% url 'login' %}" class="text-decoration-none">Entre</a>
+    </div>
   </div>
-</form>
-{% endblock  %}
+</div>
+{% endblock %}
